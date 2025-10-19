@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const Contact = () => {
   const [showPhone, setShowPhone] = useState(false);
 
@@ -8,22 +9,25 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
+    <section className="contact-section d-flex align-items-center justify-content-center text-center">
       <div className="contact-card">
-        <h1>Contact Me</h1>
+        <h1 className="contact-title mb-4">Get in Touch</h1>
+        <p className="contact-subtitle mb-4">
+          I’d love to connect! You can reach out to me through the options below.
+        </p>
 
-        {/* Show button or phone number */}
+        {/* Call Me Button */}
         {!showPhone ? (
-          <button className="btn phone-btn" onClick={handlePhoneClick}>
+          <button className="btn phone-btn mb-3" onClick={handlePhoneClick}>
             Call Me
           </button>
         ) : (
-          <a href="tel:6283441364" className="btn phone-btn">
+          <a href="tel:6283441364" className="btn phone-btn mb-3">
             📞 6283441364
           </a>
         )}
 
-        <div className="buttons">
+        <div className="d-flex justify-content-center gap-3 mt-4">
           <a
             href="https://github.com/Ravneet-project"
             target="_blank"
@@ -42,7 +46,7 @@ const Contact = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
