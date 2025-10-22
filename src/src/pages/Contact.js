@@ -1,52 +1,65 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 const Contact = () => {
-  const [showPhone, setShowPhone] = useState(false);
-
-  const handlePhoneClick = () => {
-    setShowPhone(true);
-  };
-
   return (
-    <section className="contact-section d-flex align-items-center justify-content-center text-center">
-      <div className="contact-card">
-        <h1 className="contact-title mb-4">Get in Touch</h1>
-        <p className="contact-subtitle mb-4">
-          I’d love to connect! You can reach out to me through the options below.
-        </p>
-
-        {/* Call Me Button */}
-        {!showPhone ? (
-          <button className="btn phone-btn mb-3" onClick={handlePhoneClick}>
-            Call Me
-          </button>
-        ) : (
-          <a href="tel:6283441364" className="btn phone-btn mb-3">
-            📞 6283441364
-          </a>
-        )}
-
-        <div className="d-flex justify-content-center gap-3 mt-4">
-          <a
-            href="https://github.com/Ravneet-project"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn github-btn"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ravneet-kaur-aa2b332a8/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn linkedin-btn"
-          >
-            LinkedIn
-          </a>
+    <div className="contact-page">
+      {/* Top Banner Section */}
+      <section className="contact-hero">
+        <div className="overlay">
+          <h1>Hello.</h1>
+          <p>Let's work together on your next project.</p>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="contact-container">
+        {/* Left Side */}
+        <div className="contact-left">
+          <h3>For commissions and project inquiries, please email:</h3>
+          <a href="mailto:ravneet.sawhney123@gmail.com" className="email-link">
+           ravneet.sawhney123@gmail.com
+          </a>
+          <p>or send a message via this form</p>
+
+          {/* Social Links */}
+          <div className="social-links">
+            <a
+              href="https://github.com/Ravneet-project"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn github"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ravneet-kaur-aa2b332a8/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn linkedin"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        {/* Right Form Side */}
+        <div className="contact-right">
+          <h3>Contact</h3>
+          <form className="contact-form">
+            <div className="form-row">
+              <input type="text" placeholder="First Name" required />
+              <input type="text" placeholder="Last Name" required />
+            </div>
+            <input type="email" placeholder="Email *" required />
+            <textarea placeholder="Write a message" rows="4"></textarea>
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
   );
 };
 
