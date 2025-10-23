@@ -1,27 +1,30 @@
 import React from "react";
 import "./Certifications.css";
 
-// Import logos (you can replace with actual images in your /assets folder)
-import UnstopLogo from "./assets/unstop.png";
-import HpLifeLogo from "./assets/hplife.png";
-import ForageLogo from "./assets/forage.png";
-import CourseraLogo from "./assets/coursera.png";
-import O7Logo from "./assets/o7.png";
+// Import logos
+import UnstopLogo from "../assets/unstop.png";
+import HpLifeLogo from "../assets/hplife.png";
+import ForageLogo from "../assets/forage.png";
+import CourseraLogo from "../assets/coursera.png";
+import O7Logo from "../assets/o7.png";
 
+// Certifications data
 const certifications = [
   {
     title: "Certificate of Excellence in Daily Quiz – Management: October Series",
     platform: "Unstop",
     issued: "Oct 2025",
     credentialId: "61644519-cd03-4cf0-bbf2-ff01825dd457",
-    logo: UnstopLogo
+    logo: UnstopLogo,
+    certificateImage: require("../assets/cert_unstop_quiz.JPG")
   },
   {
     title: "Certificate of Completion – Interview Toolkit",
     platform: "Unstop",
     issued: "Aug 2025",
     credentialId: "f5c95d99-2b19-4f04-9a74-77cd6ea8876d",
-    logo: UnstopLogo
+    logo: UnstopLogo,
+    certificateImage: require("../assets/cert_interview_toolkit.jpeg")
   },
   {
     title: "Data Science & Analytics",
@@ -29,21 +32,24 @@ const certifications = [
     issued: "Jul 2025",
     credentialId: "df15f248-ea97-4b6f-a2b2-7fff13bc1445",
     skills: "Data Science",
-    logo: HpLifeLogo
+    logo: HpLifeLogo,
+    certificateImage: require("../assets/cert_hplife.jpeg")
   },
   {
     title: "Tata – Cybersecurity Analyst Job Simulation",
     platform: "Forage",
     issued: "Jul 2025",
     credentialId: "fwugmRwjEnZpxDheF",
-    logo: ForageLogo
+    logo: ForageLogo,
+    certificateImage: require("../assets/cert_forage_cyber.JPG")
   },
   {
     title: "Tata – GenAI Powered Data Analytics Job Simulation",
     platform: "Forage",
     issued: "Jul 2025",
     credentialId: "mwbTLrsoezMX8pmnR",
-    logo: ForageLogo
+    logo: ForageLogo,
+    certificateImage: require("../assets/cert_forage_genai.JPG")
   },
   {
     title: "Crash Course on Python",
@@ -51,10 +57,12 @@ const certifications = [
     issued: "May 2023",
     credentialId: "FBPNQH3R3CF8",
     link: "https://www.coursera.org/account/accomplishments/verify/FBPNQH3R3CF8",
-    logo: CourseraLogo
+    logo: CourseraLogo,
+    certificateImage: require("../assets/cert_coursera_python.JPG")
   }
 ];
 
+// Trainings data
 const trainings = [
   {
     title: "MERN Stack Development",
@@ -71,9 +79,10 @@ const trainings = [
   }
 ];
 
-const Certifications = () => {
+const TrainingCertificate = () => {
   return (
     <div className="certifications-container">
+      {/* Certifications Section */}
       <h2>🎓 Certifications</h2>
       <div className="card-container">
         {certifications.map((cert, index) => (
@@ -90,10 +99,24 @@ const Certifications = () => {
             ) : (
               <p><strong>Credential ID:</strong> {cert.credentialId}</p>
             )}
+
+            {/* Certificate Thumbnail */}
+            {cert.certificateImage && (
+              <div className="certificate-image-container">
+                <a href={cert.certificateImage} target="_blank" rel="noreferrer">
+                  <img
+                    src={cert.certificateImage}
+                    alt={`${cert.title} certificate`}
+                    className="certificate-thumbnail"
+                  />
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
+      {/* Trainings Section */}
       <h2>🛠️ Trainings</h2>
       <div className="card-container">
         {trainings.map((train, index) => (
@@ -113,4 +136,4 @@ const Certifications = () => {
   );
 };
 
-export default TrainingCertifications;
+export default TrainingCertificate;

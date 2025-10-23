@@ -22,6 +22,7 @@ const Navbar = () => {
         <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
         <NavLink to="/experience" onClick={closeMenu}>Experience</NavLink>
         <NavLink to="/contact" onClick={closeMenu}>ContactUs</NavLink>
+        <NavLink to="/trainingcertificate" onClick={closeMenu}>TrainingCertificate</NavLink>
       </div>
 
       <div className={`hamburger ${isOpen ? "active" : ""}`} onClick={toggleMenu}>
